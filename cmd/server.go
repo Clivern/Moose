@@ -38,24 +38,20 @@ var serverCmd = &cobra.Command{
 					))
 				}
 			}
-
-			if !fs.FileExists(logOutput) {
-				f, err := os.Create(logOutput)
-				if err != nil {
-					panic(fmt.Sprintf(
-						"Error while creating log file [%s]: %s",
-						logOutput,
-						err.Error(),
-					))
-				}
-				defer f.Close()
-			}
 		}
 
 		if logOutput == "stdout" {
 			log.SetOutput(os.Stdout)
 		} else {
-			f, _ := os.Create(logOutput)
+			f, err := os.OpenFile(logOutput, os.O_CREATE|os.O_WRONLY|os.O_APPEND, 0644)
+
+			if err != nil {
+				panic(fmt.Sprintf(
+					"Error while opening log file [%s]: %s",
+					logOutput,
+					err.Error(),
+				))
+			}
 			log.SetOutput(f)
 		}
 
