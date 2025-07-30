@@ -13,7 +13,7 @@ import (
 var licenseCmd = &cobra.Command{
 	Use:   "license",
 	Short: "Print the license",
-	Run: func(cmd *cobra.Command, args []string) {
+	Run: func(_ *cobra.Command, _ []string) {
 		fmt.Println(`MIT License
 
 Copyright (c) 2025 Clivern

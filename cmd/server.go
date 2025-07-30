@@ -22,7 +22,7 @@ import (
 var serverCmd = &cobra.Command{
 	Use:   "server",
 	Short: "Start moose server",
-	Run: func(cmd *cobra.Command, args []string) {
+	Run: func(_ *cobra.Command, _ []string) {
 
 		fs := util.NewFileSystem()
 

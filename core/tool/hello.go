@@ -12,7 +12,7 @@ import (
 )
 
 // HelloHandler handles the hello_world tool requests
-func HelloHandler(ctx context.Context, request mcp.CallToolRequest) (*mcp.CallToolResult, error) {
+func HelloHandler(_ context.Context, request mcp.CallToolRequest) (*mcp.CallToolResult, error) {
 	name, err := request.RequireString("name")
 
 	if err != nil {

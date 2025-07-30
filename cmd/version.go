@@ -24,7 +24,7 @@ var (
 var versionCmd = &cobra.Command{
 	Use:   "version",
 	Short: "Print the version number",
-	Run: func(cmd *cobra.Command, args []string) {
+	Run: func(_ *cobra.Command, _ []string) {
 		fmt.Printf(
 			`Current Moose Version %v Commit %v, Built @%v By %v.\n`,
 			Version,
