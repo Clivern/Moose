@@ -1,5 +1,5 @@
 <p align="center">
-    <img src="/static/logo.png?v=0.1.0" width="300" />
+    <img src="/static/logo.png?v=0.1.1" width="300" />
     <h3 align="center">Moose</h3>
     <p align="center">MCP Server Boilerplate In Go</p>
     <p align="center">
@@ -10,10 +10,10 @@
             <img src="https://github.com/clivern/moose/workflows/Release/badge.svg">
         </a>
         <a href="https://github.com/clivern/moose/releases">
-            <img src="https://img.shields.io/badge/Version-0.1.0-9B59B6.svg">
+            <img src="https://img.shields.io/badge/Version-0.1.1-9B59B6.svg">
         </a>
         <a href="https://goreportcard.com/report/github.com/clivern/moose">
-            <img src="https://goreportcard.com/badge/github.com/clivern/moose?v=0.1.0">
+            <img src="https://goreportcard.com/badge/github.com/clivern/moose?v=0.1.1">
         </a>
         <a href="https://godoc.org/github.com/clivern/moose">
             <img src="https://godoc.org/github.com/clivern/moose?status.svg">
@@ -47,13 +47,23 @@ To run `moose` in `STDIO` mode in Cursor AI IDE, use the following configuration
 }
 ```
 
+```json
+{
+  "mcpServers": {
+    "moose": {
+      "command": "moose server --log-format json --log-level debug --log-output /var/log/moose.log"
+    }
+  }
+}
+```
+
 
 #### SSE Mode
 
 To run `moose` in `SSE` mode, first start the server:
 
 ```bash
-moose server --sse --url http://localhost:8080
+moose server --sse --url http://127.0.0.1:8080
 ```
 
 Then configure `Cursor` to connect to the `SSE` endpoint:
@@ -62,7 +72,7 @@ Then configure `Cursor` to connect to the `SSE` endpoint:
 {
   "mcpServers": {
     "moose": {
-      "url": "http://localhost:8080"
+      "url": "http://127.0.0.1:8080/sse"
     }
   }
 }

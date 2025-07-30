@@ -9,6 +9,7 @@ import (
 	"fmt"
 
 	"github.com/mark3labs/mcp-go/mcp"
+	log "github.com/sirupsen/logrus"
 )
 
 // HelloHandler handles the hello_world tool requests
@@ -16,8 +17,16 @@ func HelloHandler(_ context.Context, request mcp.CallToolRequest) (*mcp.CallTool
 	name, err := request.RequireString("name")
 
 	if err != nil {
+		log.WithFields(log.Fields{
+			"error": err.Error(),
+		}).Error("Failed to run hello tool")
+
 		return mcp.NewToolResultError(err.Error()), nil
 	}
+
+	log.WithFields(log.Fields{
+		"name": name,
+	}).Info("Run hello tool")
 
 	return mcp.NewToolResultText(fmt.Sprintf("Hello, %s!", name)), nil
 }

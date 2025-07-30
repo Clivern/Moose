@@ -7,7 +7,7 @@ WORKDIR /app
 
 COPY ./ ./
 
-RUN go build -v -ldflags="-X 'main.version=v0.1.0'" moose.go
+RUN go build -v -ldflags="-X 'main.version=v0.1.1'" moose.go
 
 FROM ubuntu:24.04
 
@@ -29,4 +29,4 @@ VOLUME /app/var
 
 RUN ./moose version
 
-CMD ["./moose", "server", "--sse", "--url", "http://localhost:8000"]
+CMD ["./moose", "server", "--sse", "--url", "http://127.0.0.1:8000"]

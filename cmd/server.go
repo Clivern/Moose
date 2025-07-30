@@ -76,7 +76,7 @@ var serverCmd = &cobra.Command{
 
 		s := server.NewMCPServer(
 			"Moose",
-			"0.1.0",
+			"0.1.1",
 			server.WithToolCapabilities(false),
 		)
 
