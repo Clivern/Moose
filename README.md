@@ -1,5 +1,5 @@
 <p align="center">
-    <img src="/static/logo.png?v=0.1.1" width="300" />
+    <img src="/static/logo.png?v=0.1.2" width="300" />
     <h3 align="center">Moose</h3>
     <p align="center">MCP Server Boilerplate In Go</p>
     <p align="center">
@@ -10,10 +10,10 @@
             <img src="https://github.com/clivern/moose/workflows/Release/badge.svg">
         </a>
         <a href="https://github.com/clivern/moose/releases">
-            <img src="https://img.shields.io/badge/Version-0.1.1-9B59B6.svg">
+            <img src="https://img.shields.io/badge/Version-0.1.2-9B59B6.svg">
         </a>
         <a href="https://goreportcard.com/report/github.com/clivern/moose">
-            <img src="https://goreportcard.com/badge/github.com/clivern/moose?v=0.1.1">
+            <img src="https://goreportcard.com/badge/github.com/clivern/moose?v=0.1.2">
         </a>
         <a href="https://godoc.org/github.com/clivern/moose">
             <img src="https://godoc.org/github.com/clivern/moose?status.svg">
