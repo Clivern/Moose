@@ -1,5 +1,5 @@
 <p align="center">
-    <img src="/static/logo.png?v=0.1.0" width="200" />
+    <img src="/static/logo.png?v=0.1.0" width="300" />
     <h3 align="center">Moose</h3>
     <p align="center">MCP Server Boilerplate In Go</p>
     <p align="center">
