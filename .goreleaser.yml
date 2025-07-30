@@ -1,39 +1,51 @@
-# Make sure to check the documentation at http://goreleaser.com
----
-archives:
-  -
-    replacements:
-      386: i386
-      amd64: x86_64
-      darwin: Darwin
-      linux: Linux
-      windows: Windows
-    files:
-      - LICENSE
-      - README.md
-      - config.dist.yml
-      - config.prod.yml
+# This is an example .goreleaser.yml file with some sensible defaults.
+# Make sure to check the documentation at https://goreleaser.com
+version: 2
+
+project_name: moose
+
 before:
   hooks:
     - "go mod download"
+    - "go mod tidy"
     - "go generate ./..."
+
 builds:
-  -
+  - id: moose
     env:
       - CGO_ENABLED=0
+    goarch:
+      - amd64
+      - arm64
     goos:
       - linux
       - darwin
       - windows
+    binary: moose
+    main: ./moose.go
+
+archives:
+  - name_template: >-
+      {{ .ProjectName }}_
+      {{- title .Os }}_
+      {{- if eq .Arch "amd64" }}x86_64
+      {{- else if eq .Arch "386" }}i386
+      {{- else }}{{ .Arch }}{{ end }}
+      {{- if .Arm }}v{{ .Arm }}{{ end }}
+    # use zip for windows archives
+    format_overrides:
+      - goos: windows
+        format: zip
+    files:
+      - LICENSE
+      - README.md
+
+checksum:
+  name_template: 'checksums.txt'
 
 changelog:
+  sort: asc
   filters:
     exclude:
-      - "^docs:"
-      - "^test:"
-  sort: asc
-checksum:
-  name_template: checksums.txt
-snapshot:
-  name_template: "{{ .Tag }}-next"
-project_name: moose
+      - '^docs:'
+      - '^test:'
