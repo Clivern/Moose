@@ -9,7 +9,7 @@ COPY ./ ./
 
 RUN go build -v -ldflags="-X 'main.version=v0.1.1'" moose.go
 
-FROM ubuntu:24.04
+FROM ubuntu:26.04
 
 RUN apt-get update
 RUN apt-get install curl -y
